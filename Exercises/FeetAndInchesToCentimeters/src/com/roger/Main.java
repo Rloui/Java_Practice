@@ -2,9 +2,14 @@ package com.roger;
 
 public class Main {
 
+    private static final String INVALID_VALUE_MESSAGE = "Invalid value";
+
     public static void main(String[] args) {
-        System.out.println(calcFeetAndInchesToCentimeters(13,1));
-        System.out.println(calcFeetAndInchesToCentimeters(100));
+        //System.out.println(calcFeetAndInchesToCentimeters(13,1));
+        //System.out.println(calcFeetAndInchesToCentimeters(100));
+
+        getDurationString(3945);
+        getDurationString(-41);
 
     }
 
@@ -30,5 +35,24 @@ public class Main {
             return cenimeters;
         }
         return -1;
+    }
+
+    public static String getDurationString(int min, int sec){
+        if(min >= 0 && (sec >= 0 && sec <= 59)){
+            int hours = min / 60;
+            int minRemaining = min % 60;
+            System.out.println(hours + "h " + minRemaining + "m " + sec + "s ");
+        }
+        return INVALID_VALUE_MESSAGE;
+    }
+
+    public static String getDurationString(int sec){
+        if(sec >= 0) {
+            int min = sec / 60;
+            int secRemaining = sec % 60;
+
+            getDurationString(min, secRemaining);
+        }
+        return INVALID_VALUE_MESSAGE;
     }
 }
