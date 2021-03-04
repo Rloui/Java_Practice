@@ -7,6 +7,13 @@ public class Main {
 
     public static void main(String[] args) {
 	// write your code here
-        ArrayList<Album> album = new ArrayList<Album>();
+
+        Album albumRNS = new Album("RNS");
+        albumRNS.addAlbumSong(Song.createSong("Realest Ever", 6.22));
+        albumRNS.addAlbumSong(Song.createSong("Best Me", 3.54));
+
+        System.out.println(albumRNS);
+
+
     }
 }

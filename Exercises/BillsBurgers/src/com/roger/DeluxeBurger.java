@@ -1,20 +1,29 @@
 package com.roger;
 
-public class DeluxeBurger extends Burger {
-    private boolean chips;
-    private boolean drinks;
-
-    public DeluxeBurger(String rollType, String meat, double price, String name, boolean lettuce, boolean tomato, boolean pickle, boolean cheese, boolean chips, boolean drinks) {
-        super(rollType, meat, price, name, lettuce, tomato, pickle, cheese);
-        this.chips = chips;
-        this.drinks = drinks;
+public class DeluxeBurger extends Hamburger {
+    public DeluxeBurger() {
+        super("Deluxe", "Sausage & Bacon", 14.54, "White");
+        super.addHamburgerAddition1("Chips", 2.75);
+        super.addHamburgerAddition2("Drink", 1.81);
     }
 
-    public boolean isChips() {
-        return chips;
+    @Override
+    public void addHamburgerAddition1(String name, double price) {
+        System.out.println("Cannot not add additional items to a deluxe burger");
     }
 
-    public boolean isDrinks() {
-        return drinks;
+    @Override
+    public void addHamburgerAddition2(String name, double price) {
+        System.out.println("Cannot not add additional items to a deluxe burger");
+    }
+
+    @Override
+    public void addHamburgerAddition3(String name, double price) {
+        System.out.println("Cannot not add additional items to a deluxe burger");
+    }
+
+    @Override
+    public void addHamburgerAddition4(String name, double price) {
+        System.out.println("Cannot not add additional items to a deluxe burger");
     }
 }
