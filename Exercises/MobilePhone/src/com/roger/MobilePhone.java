@@ -4,22 +4,20 @@ import java.util.ArrayList;
 
 public class MobilePhone {
     private String myNumber;
-    private ArrayList<Contact> myContacts;
+    private ArrayList<Contact> myContacts; // this is an arrayList to hold all the contact records/objects
 
     public MobilePhone(String myNumber) {
         this.myNumber = myNumber;
         this.myContacts = new ArrayList<Contact>();
     }
 
-    public boolean addNewContact(Contact contact) {
+    public boolean addNewContact(Contact contact) { // passes the contact object through the method
         if(findContact(contact.getName()) >=0) {
             System.out.println("Contact is already on file");
             return false;
         }
-
         myContacts.add(contact);
         return true;
-
     }
 
     public boolean updateContact(Contact oldContact, Contact newContact) {
@@ -27,8 +25,10 @@ public class MobilePhone {
         if(foundPosition <0) {
             System.out.println(oldContact.getName() +", was not found.");
             return false;
+        } else if (findContact(newContact.getName()) != -1) {
+            System.out.println("Contact with name " + newContact.getName() + " already exsits. Update was not successful");
+            return false;
         }
-
         this.myContacts.set(foundPosition, newContact);
         System.out.println(oldContact.getName() + ", was replaced with " + newContact.getName());
         return true;
@@ -71,7 +71,6 @@ public class MobilePhone {
         if(position >=0) {
             return this.myContacts.get(position);
         }
-
         return null;
     }
 
@@ -82,7 +81,6 @@ public class MobilePhone {
                     this.myContacts.get(i).getName() + " -> " +
                     this.myContacts.get(i).getPhoneNumber());
         }
-
     }
 }
 

@@ -5,8 +5,8 @@ import java.util.Scanner;
 
 public class Main {
 
-    private static Scanner scanner = new Scanner(System.in);
-    private static GroceryList groceryList = new GroceryList();
+    private static Scanner scanner = new Scanner(System.in); // instansiates a scanner object from the Scanner class
+    private static GroceryList groceryList = new GroceryList(); // instaniates a groceryList object from the GroceryList class
 
     public static void main(String[] args) {
         boolean quit = false;
@@ -15,8 +15,8 @@ public class Main {
         printInstructions();
         while (!quit) {
             System.out.println("Enter your choice: ");
-            choice = scanner.nextInt();
-            scanner.nextLine();
+            choice = scanner.nextInt(); // takes users selection of an specific option
+            scanner.nextLine(); // handle the next thing the user would enter which is the enter key
 
             switch (choice) {
                 case 0:
@@ -59,15 +59,15 @@ public class Main {
 
     public static void addItem() {
         System.out.print("Please enter the grocery item: ");
-        groceryList.addGroceryItem(scanner.nextLine());
+        groceryList.addGroceryItem(scanner.nextLine()); // calls the add function from the class on the groceryList object
     }
 
     public static void modifyItem() {
-        System.out.print("Current item name: ");
-        String itemNo = scanner.nextLine();
+        System.out.print("Current item number: ");
+        String itemNo = scanner.nextLine(); // takes in the item number that the user want to modify
         System.out.print("Enter new item: ");
-        String newItem = scanner.nextLine();
-        groceryList.modifyGroceryItem(itemNo, newItem);
+        String newItem = scanner.nextLine(); // takes the new item from the user
+        groceryList.modifyGroceryItem(itemNo, newItem); // calls the modify function from the grocery class on the groceryList object
     }
 
     public static void removeItem() {
@@ -87,7 +87,7 @@ public class Main {
     }
 
     public static void processArrayList() {
-        ArrayList<String> newArray = new ArrayList<String>();
+        ArrayList<String> newArray = new ArrayList<String>(); // instanitates a newArray Array List
         newArray.addAll(groceryList.getGroceryList());
 
         ArrayList<String> nextArray = new ArrayList<String>(groceryList.getGroceryList());
