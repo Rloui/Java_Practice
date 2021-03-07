@@ -18,6 +18,7 @@ public class Song {
     }
 
     public static Song createSong(String title, Double duration) {
+        System.out.println("This song has been Created: " + title + " duration of: " + duration);
         return new Song(title, duration);
     }
 }
